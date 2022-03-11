@@ -15,6 +15,14 @@ type Node struct {
 // Split slice of number-word nodes.
 type Split []Node
 
+// Stats struct for statistics on given input.
+type Stats struct {
+	ShortestWord                  string
+	LongestWord                   string
+	AverageWordLength             float64
+	ListOfWordWithLengthAsAverage []string
+}
+
 var inputRegexp = regexp.MustCompile(`^([0-9]+-[^-]+)(-[0-9]+-[^-]+)*$`)
 
 // TestValidity tells is given string valid or not.

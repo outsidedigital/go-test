@@ -24,3 +24,10 @@ func wholeStory(s string) string {
 	i := input.FromString(s)
 	return i.WholeStory()
 }
+
+// storyStats returns statistics on given input.
+// Difficulty of the function: O(n)
+// Time to implement the function: 10m
+func storyStats(s string) input.Stats {
+	return input.Stats{}
+}
