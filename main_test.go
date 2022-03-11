@@ -19,6 +19,7 @@ var invalidChars = "-\f\n\r\t"
 // mockInput generates random correct/incorrect string depending on boolean flag
 // Difficulty of the function: O(n) where n is length of generated string
 // Time to implement the function: 15m
+// TODO: replace with go fuzzing
 func mockInput(valid bool) string {
 	chars := validChars
 	if !valid {
