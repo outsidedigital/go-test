@@ -16,3 +16,10 @@ func averageNumber(s string) float64 {
 	i := input.FromString(s)
 	return i.AverageNumber()
 }
+
+// wholeStory returns the average number from all the numbers.
+// Difficulty of the function: O(n)
+// Time to implement the function: 10m
+func wholeStory(s string) string {
+	return ""
+}
