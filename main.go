@@ -13,5 +13,6 @@ func testValidity(s string) bool {
 // Difficulty of the function: O(n)
 // Time to implement the function: 20m
 func averageNumber(s string) float64 {
-	return 0
+	i := input.FromString(s)
+	return i.AverageNumber()
 }
