@@ -29,5 +29,6 @@ func wholeStory(s string) string {
 // Difficulty of the function: O(n)
 // Time to implement the function: 10m
 func storyStats(s string) input.Stats {
-	return input.Stats{}
+	i := input.FromString(s)
+	return i.StoryStats()
 }
