@@ -1,11 +1,43 @@
 package main
 
 import (
-	"reflect"
-	"testing"
-
+	"fmt"
 	"go-test/input"
+	"math/rand"
+	"reflect"
+	"strings"
+	"testing"
+	"time"
 )
+
+const maxInputParts = 10
+const maxPartLength = 10
+
+var validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var invalidChars = "-\f\n\r\t"
+
+// mockInput generates random correct/incorrect string depending on boolean flag
+// Difficulty of the function: O(n) where n is length of generated string
+// Time to implement the function: 15m
+func mockInput(valid bool) string {
+	chars := validChars
+	if !valid {
+		chars = invalidChars
+	}
+	nchars := len(chars)
+	rand.Seed(time.Now().Unix())
+	n := rand.Intn(maxInputParts) + 1
+	parts := make([]string, n)
+	for i := 0; i < n; i++ {
+		m := rand.Intn(maxPartLength) + 1
+		buf := make([]byte, m)
+		for j := 0; j < m; j++ {
+			buf[j] = chars[rand.Intn(nchars)]
+		}
+		parts[i] = fmt.Sprintf("%d-%s", rand.Uint64(), buf)
+	}
+	return strings.Join(parts, "-")
+}
 
 func Test_testValidity(t *testing.T) {
 	test := func(input string, want bool) func(*testing.T) {
@@ -50,6 +82,16 @@ func Test_testValidity(t *testing.T) {
 		{
 			name:  "incomplete sequence",
 			input: "23-ab-48-caba-56",
+			want:  false,
+		},
+		{
+			name:  "random valid",
+			input: mockInput(true),
+			want:  true,
+		},
+		{
+			name:  "random invalid",
+			input: mockInput(false),
 			want:  false,
 		},
 	}
