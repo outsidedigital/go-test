@@ -21,5 +21,6 @@ func averageNumber(s string) float64 {
 // Difficulty of the function: O(n)
 // Time to implement the function: 10m
 func wholeStory(s string) string {
-	return ""
+	i := input.FromString(s)
+	return i.WholeStory()
 }

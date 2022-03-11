@@ -54,3 +54,16 @@ func (s Split) AverageNumber() float64 {
 	}
 	return float64(total) / float64(length)
 }
+
+// WholeStory returns text that is composed from all words separated by spaces.
+func (s Split) WholeStory() string {
+	if len(s) == 0 {
+		return ""
+	}
+
+	var res []string
+	for _, ss := range s {
+		res = append(res, ss.Word)
+	}
+	return strings.Join(res, " ")
+}
